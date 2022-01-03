@@ -10,8 +10,42 @@ body {
 
 #root {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   flex-grow: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+}
+
+.quiz-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .quiz-modal-container {
@@ -24,21 +58,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-}
-
-.quiz-modal-enter {
-  opacity: 0;
-  transform: translateY(-200px);
-}
-
-.quiz-modal-active {
-  transform: translateY(0);
-  opacity: 1;
+  z-index: 500;
 }
 
 .quiz-modal__content {
+  position: relative;
   padding: 20px;
   border-radius: 12px;
   background: white;
+  z-index: 1000;
+}
+
+.quiz-modal-enter .quiz-modal__content {
+  animation: fadeIn 0.5s forwards;
+}
+
+.quiz-modal-exit-active .quiz-modal__content {
+  animation: fadeOut 0.5s forwards;
 }

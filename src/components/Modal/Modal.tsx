@@ -1,4 +1,5 @@
-import React, { Children, FC, ReactNode } from 'react'
+import React, { useState, FC, ReactNode } from 'react'
+import { CSSTransition } from 'react-transition-group'
 
 import { ItemCard } from '../ItemCard'
 
@@ -10,13 +11,17 @@ type ModalProps = {
 
 export const Modal: FC<ModalProps> = ({isActive, setIsActive, children}) => {
     return (
-        <div
-            className={isActive ? "quiz-modal active" : "quiz-modal"}
-            onClick={() => setIsActive(false)}
-        >
-            <div className="quiz-modal__content" onClick={(event) => event.stopPropagation()}>
-                {children}
+        <CSSTransition mountOnEnter unmountOnExit in={isActive} timeout={500} classNames="quiz-modal" >
+            <div className="quiz-modal">
+                <div
+                    className="quiz-modal-container"
+                    onClick={() => setIsActive(false)}
+                />
+
+                <div className="quiz-modal__content">
+                    {children}
+                </div>
             </div>
-        </div>
+        </CSSTransition>
     )
 }
