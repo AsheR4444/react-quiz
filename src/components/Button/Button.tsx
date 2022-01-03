@@ -4,30 +4,16 @@ type ButtonProps = {
     children: React.ReactNode,
     type: "button",
     disabled?: boolean,
-    className?: string
+    onClick: () => void
 }
 
-export const Button: FC<ButtonProps> = ({children, type, disabled, className}) => {
-    let currentComponent = null
-
-    switch (disabled) {
-    case true:
-        currentComponent = (
-            <button type={type} disabled className="bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed">
-                {children}
-            </button>
-        )
-        break
-
-    default:
-        currentComponent = (
-            <button type={type} className={className}>
-                {children}
-            </button>
-        )
-        break
-    }
-
-
-    return (currentComponent)
-}
+export const Button: FC<ButtonProps> = ({children, type, disabled, onClick}) => (
+    <button
+        type={type}
+        disabled={disabled}
+        className="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-pink-500 rounded shadow ripple hover:shadow-lg hover:bg-pink-600 focus:outline-none"
+        onClick={onClick}
+    >
+        {children}
+    </button>
+)

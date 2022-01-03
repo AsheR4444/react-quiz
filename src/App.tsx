@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from './components/Button'
 
 import { ItemCard } from './components/ItemCard'
 import { Modal } from './components/Modal'
@@ -10,14 +11,9 @@ export const App: React.FC = () => {
 
     return (
         <>
-            <button
-                type="button"
-                className="inline-block px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-pink-500 rounded shadow ripple hover:shadow-lg hover:bg-pink-600 focus:outline-none"
-                onClick={() => setModalActive(!modalActive)}
-            >
+            <Button type="button" onClick={() => setModalActive(!modalActive)}>
                 Нажми на меня!
-            </button>
-
+            </Button>
 
             <Modal isActive={modalActive} setIsActive={() => setModalActive(!modalActive)}>
                 <ItemCard
