@@ -31,10 +31,7 @@ export const ItemCard: FC<ItemCardProps> = ({image, title, text}) => {
                             </p>
                         ) : (
                             <>
-                                <Checkbox />
-                                <Checkbox />
-                                <Checkbox />
-                                <Checkbox />
+                                <Checkbox text="Первый вопрос" />
                             </>
                         )
                     }

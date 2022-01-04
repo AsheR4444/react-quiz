@@ -70,9 +70,9 @@ body {
 }
 
 .quiz-modal-enter .quiz-modal__content {
-  animation: fadeIn 0.5s forwards;
+  animation: fadeIn 0.3s forwards;
 }
 
 .quiz-modal-exit-active .quiz-modal__content {
-  animation: fadeOut 0.5s forwards;
+  animation: fadeOut 0.3s forwards;
 }

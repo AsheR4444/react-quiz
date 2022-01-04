@@ -25,7 +25,7 @@ export const Modal: FC<ModalProps> = ({isActive, setIsActive, children}) => {
             mountOnEnter
             unmountOnExit
             in={isActive}
-            timeout={500}
+            timeout={300}
             classNames="quiz-modal"
         >
             <div className="quiz-modal">
